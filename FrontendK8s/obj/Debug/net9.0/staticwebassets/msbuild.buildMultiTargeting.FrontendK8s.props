@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FrontendK8s.props" />
+</Project>
