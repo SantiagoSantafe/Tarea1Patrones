@@ -37,7 +37,7 @@ public class IndexModel : PageModel
                 "application/json"
                 );
             
-            var response = await client.PostAsync($"{apiUrl}/nombres", content);
+            var response = await client.PostAsync($"{apiUrl}/", content);
             response.EnsureSuccessStatusCode();
 
             await CargarNombres();
@@ -54,7 +54,7 @@ public class IndexModel : PageModel
 
         try
         {
-            var response = await client.GetAsync($"{apiUrl}/Nombres");
+            var response = await client.GetAsync($"{apiUrl}/");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
