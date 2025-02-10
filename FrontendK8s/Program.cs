@@ -1,13 +1,27 @@
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Mvc;  // Add this line
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Indica que la aplicación escuche en el puerto 80
 builder.WebHost.UseUrls("http://0.0.0.0:80");
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddHttpClient(options =>
+// Configurar Data Protection
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/app/keys"));
+
+// Deshabilitar temporalmente la validación antiforgery para pruebas
+builder.Services.AddRazorPages(options =>
 {
-    options.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    options.Conventions.AddPageApplicationModelConvention("/",
+        model => model.Filters.Add(new IgnoreAntiforgeryTokenAttribute()));
+});
+
+builder.Services.AddHttpClient("API", client =>
+{
+    var apiUrl = builder.Configuration["ApiSettings:BaseUrl"];
+    client.BaseAddress = new Uri(apiUrl ?? "http://api-service:8000");
+    client.DefaultRequestHeaders.Accept.Add(
+        new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 });
 
 var app = builder.Build();
@@ -16,7 +30,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -27,8 +40,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+app.MapRazorPages();
 
 app.Run();
