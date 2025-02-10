@@ -54,15 +54,22 @@ public class IndexModel : PageModel
 
         try
         {
-            var response = await client.GetAsync($"{apiUrl}/");
-            response.EnsureSuccessStatusCode();
+        var response = await client.GetAsync($"{apiUrl}/");
+        response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsStringAsync();
-            Nombres = JsonSerializer.Deserialize<List<string>>(content);
+        var content = await response.Content.ReadAsStringAsync();
+        var resultado = JsonSerializer.Deserialize<ResultadoNombres>(content);
+        Nombres = resultado?.nombres ?? new List<string>();
+        
         }
         catch (Exception ex)
         {
            ModelState.AddModelError(string.Empty, $"Error {ex.Message} al cargar los nombres.");
         }
+    }
+
+    public class ResultadoNombres
+    {
+        public List<string> nombres { get; set; } = new List<string>();
     }
 }

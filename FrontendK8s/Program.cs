@@ -5,7 +5,10 @@ builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient(options =>
+{
+    options.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+});
 
 var app = builder.Build();
 
