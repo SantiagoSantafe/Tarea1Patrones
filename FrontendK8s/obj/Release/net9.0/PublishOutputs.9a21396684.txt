@@ -1,7 +1,0 @@
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\publish\FrontendK8s.exe
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\publish\appsettings.Development.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\publish\appsettings.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\publish\FrontendK8s.dll
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\publish\FrontendK8s.deps.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\publish\FrontendK8s.runtimeconfig.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\publish\FrontendK8s.pdb

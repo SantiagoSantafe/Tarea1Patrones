@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\santo\\OneDrive - Universidad de la Sabana\\Universidad de la Sabana\\U 7mo Semestre\\Patrones Avanzados\\Corte 1\\Tarea1Patrones\\FrontendK8s\\FrontendK8s.csproj": {}
+    "/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/FrontendK8s.csproj": {}
   },
   "projects": {
-    "C:\\Users\\santo\\OneDrive - Universidad de la Sabana\\Universidad de la Sabana\\U 7mo Semestre\\Patrones Avanzados\\Corte 1\\Tarea1Patrones\\FrontendK8s\\FrontendK8s.csproj": {
+    "/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/FrontendK8s.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\santo\\OneDrive - Universidad de la Sabana\\Universidad de la Sabana\\U 7mo Semestre\\Patrones Avanzados\\Corte 1\\Tarea1Patrones\\FrontendK8s\\FrontendK8s.csproj",
+        "projectUniqueName": "/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/FrontendK8s.csproj",
         "projectName": "FrontendK8s",
-        "projectPath": "C:\\Users\\santo\\OneDrive - Universidad de la Sabana\\Universidad de la Sabana\\U 7mo Semestre\\Patrones Avanzados\\Corte 1\\Tarea1Patrones\\FrontendK8s\\FrontendK8s.csproj",
-        "packagesPath": "C:\\Users\\santo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\santo\\OneDrive - Universidad de la Sabana\\Universidad de la Sabana\\U 7mo Semestre\\Patrones Avanzados\\Corte 1\\Tarea1Patrones\\FrontendK8s\\obj\\",
+        "projectPath": "/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/FrontendK8s.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\santo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
@@ -59,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/root/.dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

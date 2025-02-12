@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FrontendK8s")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4798a46ed73b5cd2c1328bcd017b020aa05f9ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("FrontendK8s")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FrontendK8s")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

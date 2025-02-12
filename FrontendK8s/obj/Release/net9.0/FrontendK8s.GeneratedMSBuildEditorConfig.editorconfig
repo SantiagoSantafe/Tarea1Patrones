@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FrontendK8s
 build_property.RootNamespace = FrontendK8s
-build_property.ProjectDir = C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\
+build_property.ProjectDir = /home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s
+build_property.MSBuildProjectDirectory = /home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/santo/OneDrive - Universidad de la Sabana/Universidad de la Sabana/U 7mo Semestre/Patrones Avanzados/Corte 1/Tarea1Patrones/FrontendK8s/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/santo/OneDrive - Universidad de la Sabana/Universidad de la Sabana/U 7mo Semestre/Patrones Avanzados/Corte 1/Tarea1Patrones/FrontendK8s/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+[/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/santo/OneDrive - Universidad de la Sabana/Universidad de la Sabana/U 7mo Semestre/Patrones Avanzados/Corte 1/Tarea1Patrones/FrontendK8s/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/santo/OneDrive - Universidad de la Sabana/Universidad de la Sabana/U 7mo Semestre/Patrones Avanzados/Corte 1/Tarea1Patrones/FrontendK8s/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/santo/OneDrive - Universidad de la Sabana/Universidad de la Sabana/U 7mo Semestre/Patrones Avanzados/Corte 1/Tarea1Patrones/FrontendK8s/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/santo/OneDrive - Universidad de la Sabana/Universidad de la Sabana/U 7mo Semestre/Patrones Avanzados/Corte 1/Tarea1Patrones/FrontendK8s/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/santo/OneDrive - Universidad de la Sabana/Universidad de la Sabana/U 7mo Semestre/Patrones Avanzados/Corte 1/Tarea1Patrones/FrontendK8s/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-nx7fcdm6nx
+[/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jmj3d5ykx4
