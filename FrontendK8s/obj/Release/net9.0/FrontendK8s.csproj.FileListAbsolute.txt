@@ -1,103 +1,140 @@
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\appsettings.Development.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\appsettings.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\FrontendK8s.staticwebassets.runtime.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\FrontendK8s.staticwebassets.endpoints.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\FrontendK8s.exe
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\FrontendK8s.deps.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\FrontendK8s.runtimeconfig.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\FrontendK8s.dll
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\FrontendK8s.pdb
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.AssemblyInfoInputs.cache
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.AssemblyInfo.cs
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.csproj.CoreCompileInputs.cache
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.RazorAssemblyInfo.cache
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.RazorAssemblyInfo.cs
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\scopedcss\bundle\FrontendK8s.styles.css
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\scopedcss\projectbundle\FrontendK8s.bundle.scp.css
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\sr5y2vikfu-b9sayid5wm.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\95itaj2svw-61n19gt1b8.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\xbgbvgo996-xtxxf3hu2r.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\yh3yqv4jr7-bqjiyaj88i.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\zrokv56u0d-c2jlpeoesf.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\8fuadrj76k-erw9l3u2r3.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\4ryhalvgkx-aexeepp0ev.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\qst6owyir3-d7shbmvgxk.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\ofkv86xp5i-ausgxo2sd3.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\h38il8wfxs-k8d9w2qqmf.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\d8t3zbnwxq-cosvhxvwiu.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\ptnqh61xw2-ub07r2b239.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\kelp6i9orf-fvhpjtyr6v.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\nwjopojnq9-b7pk76d08c.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\nw72aiy6ag-fsbi9cje9m.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\sw5dct34v7-rzd6atqjts.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\0b4sb5leom-ee0r1s7dh0.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\jp81jyv1ar-dxx9fxp4il.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\5nzxpptwed-jd9uben2k1.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\cvgg7x5zge-khv3u5hwcm.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\s31ddvwdtt-r4e9w2rdcm.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\eece1yvdhk-lcd1t2u6c8.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\xvekn7q56m-c2oey78nd0.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\770536yunp-tdbxkamptv.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\1tihm1qq9g-j5mq2jizvt.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\usg7sxkgzc-06098lyss8.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\b04w7m3p3q-nvvlpmu67g.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\dkwsu05zh7-s35ty4nyc5.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\0hi1xtx6bn-pj5nd1wqec.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\uekhkbffdd-46ein0sx1k.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\ftn7a8mphv-v0zj4ognzu.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\v5lsab1wxe-37tfw0ft22.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\nwpif8ny6j-hrwsygsryq.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\mcx1csmj87-pk9g2wxc8p.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\l3sh7kob7g-ft3s53vfgj.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\8kmzoul6a1-6cfz1n2cew.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\56nwhptckn-6pdc2jztkx.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\wy7jhbax1w-493y06b0oq.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\yqkqm0t6tn-iovd86k7lj.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\xdcdv1vc4g-vr1egmr9el.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\4d8mgpr0z9-kbrnm935zg.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\of9v45oisb-jj8uyg4cgr.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\4674bu1nki-y7v9cxd14o.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\0aezxq4v3t-notf2xhcfb.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\coggmxew6k-h1s4sie4z3.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\evnbf67fmm-63fj8s7r0e.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\rhxxl4vfku-0j3bgjxly4.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\5lnks4v5qb-47otxtyo56.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\0ynoxbofgm-4v8eqarkd7.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\dhej7rrr7q-356vix0kms.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\h833pzpkxc-83jwlth58m.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\q7j6wowtds-mrlpezrjn3.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\l5k3w39oiu-lzl9nlhx6b.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\yt4kqc7m4z-ag7o75518u.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\oj2fr4savg-x0q3zqp4vz.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\7n2t46gel7-0i3buxo5is.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\naxn4jdh7l-o1o13a6vjx.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\unak100c8j-ttgo8qnofa.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\hj9s4qw01j-2z0ns9nrw6.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\7auc5lne8r-muycvpuwrr.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\vsumuhikhb-87fc7y1x7t.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\cblb1pbxv9-mlv21k5csn.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\436leoz1sv-cju6ld1wma.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\compressed\a8rngwclfj-cju6ld1wma.gz
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets.build.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets.development.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets.build.endpoints.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets\msbuild.FrontendK8s.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets\msbuild.FrontendK8s.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets\msbuild.build.FrontendK8s.props
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets\msbuild.buildMultiTargeting.FrontendK8s.props
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets\msbuild.buildTransitive.FrontendK8s.props
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\staticwebassets.pack.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.dll
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\refint\FrontendK8s.dll
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.pdb
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\FrontendK8s.genruntimeconfig.cache
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\obj\Release\net9.0\ref\FrontendK8s.dll
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\publish\web.config
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\publish\appsettings.Development.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\publish\appsettings.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\publish\FrontendK8s.deps.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\publish\FrontendK8s.runtimeconfig.json
-C:\Users\santo\OneDrive - Universidad de la Sabana\Universidad de la Sabana\U 7mo Semestre\Patrones Avanzados\Corte 1\Tarea1Patrones\FrontendK8s\bin\Release\net9.0\publish\FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.GeneratedMSBuildEditorConfig.editorconfig
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.AssemblyInfoInputs.cache
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.AssemblyInfo.cs
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.csproj.CoreCompileInputs.cache
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.MvcApplicationPartsAssemblyInfo.cache
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.RazorAssemblyInfo.cache
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.RazorAssemblyInfo.cs
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.sourcelink.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/publish/web.config
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/web.config
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/publish/web.config
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/web.config
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/publish/web.config
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/publish/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/publish/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/publish/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/publish/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/publish/FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/publish/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/publish/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/publish/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/publish/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/publish/FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/publish/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/publish/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/publish/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/publish/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/publish/FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/FrontendK8s.staticwebassets.runtime.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/FrontendK8s
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/FrontendK8s.dll
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/FrontendK8s.pdb
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/scopedcss/Pages/Shared/_Layout.cshtml.rz.scp.css
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/scopedcss/bundle/FrontendK8s.styles.css
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/scopedcss/projectbundle/FrontendK8s.bundle.scp.css
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/sr5y2vikfu-lugek5hnai.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/95itaj2svw-61n19gt1b8.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/xbgbvgo996-fr7q2aak1r.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/yh3yqv4jr7-bqjiyaj88i.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/zrokv56u0d-c2jlpeoesf.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/8fuadrj76k-erw9l3u2r3.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/4ryhalvgkx-aexeepp0ev.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/qst6owyir3-d7shbmvgxk.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/ofkv86xp5i-ausgxo2sd3.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/h38il8wfxs-k8d9w2qqmf.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/d8t3zbnwxq-cosvhxvwiu.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/ptnqh61xw2-ub07r2b239.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/kelp6i9orf-fvhpjtyr6v.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/nwjopojnq9-b7pk76d08c.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/nw72aiy6ag-fsbi9cje9m.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/sw5dct34v7-rzd6atqjts.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/0b4sb5leom-ee0r1s7dh0.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/jp81jyv1ar-dxx9fxp4il.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/5nzxpptwed-jd9uben2k1.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/cvgg7x5zge-khv3u5hwcm.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/s31ddvwdtt-r4e9w2rdcm.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/eece1yvdhk-lcd1t2u6c8.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/xvekn7q56m-c2oey78nd0.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/770536yunp-tdbxkamptv.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/1tihm1qq9g-j5mq2jizvt.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/usg7sxkgzc-06098lyss8.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/b04w7m3p3q-nvvlpmu67g.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/dkwsu05zh7-s35ty4nyc5.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/0hi1xtx6bn-pj5nd1wqec.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/uekhkbffdd-46ein0sx1k.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/ftn7a8mphv-v0zj4ognzu.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/v5lsab1wxe-37tfw0ft22.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/nwpif8ny6j-hrwsygsryq.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/mcx1csmj87-pk9g2wxc8p.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/l3sh7kob7g-ft3s53vfgj.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/8kmzoul6a1-6cfz1n2cew.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/56nwhptckn-6pdc2jztkx.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/wy7jhbax1w-493y06b0oq.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/yqkqm0t6tn-iovd86k7lj.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/xdcdv1vc4g-vr1egmr9el.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/4d8mgpr0z9-kbrnm935zg.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/of9v45oisb-jj8uyg4cgr.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/4674bu1nki-y7v9cxd14o.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/0aezxq4v3t-notf2xhcfb.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/coggmxew6k-h1s4sie4z3.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/evnbf67fmm-63fj8s7r0e.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/rhxxl4vfku-0j3bgjxly4.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/5lnks4v5qb-47otxtyo56.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/0ynoxbofgm-4v8eqarkd7.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/dhej7rrr7q-l3n5xuwxn8.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/h833pzpkxc-ilo7uva0vt.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/q7j6wowtds-qlccset4i1.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/l5k3w39oiu-lzl9nlhx6b.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/yt4kqc7m4z-ag7o75518u.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/oj2fr4savg-xzw0cte36n.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/7n2t46gel7-0i3buxo5is.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/naxn4jdh7l-o1o13a6vjx.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/unak100c8j-ttgo8qnofa.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/hj9s4qw01j-2z0ns9nrw6.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/7auc5lne8r-muycvpuwrr.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/vsumuhikhb-87fc7y1x7t.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/cblb1pbxv9-jfsiqqwiad.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/436leoz1sv-b6cyroelic.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/compressed/a8rngwclfj-b6cyroelic.gz
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets.build.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets.development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets.build.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets/msbuild.FrontendK8s.Microsoft.AspNetCore.StaticWebAssets.props
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets/msbuild.FrontendK8s.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets/msbuild.build.FrontendK8s.props
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets/msbuild.buildMultiTargeting.FrontendK8s.props
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets/msbuild.buildTransitive.FrontendK8s.props
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/staticwebassets.pack.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.dll
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/refint/FrontendK8s.dll
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.pdb
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/FrontendK8s.genruntimeconfig.cache
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/obj/Release/net9.0/ref/FrontendK8s.dll
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/publish/web.config
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/web.config
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/FrontendK8s.staticwebassets.endpoints.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/publish/appsettings.Development.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/publish/appsettings.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/publish/FrontendK8s.deps.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/publish/FrontendK8s.runtimeconfig.json
+/home/santiagosantafe/Desktop/Patrones/Tarea1Patrones/FrontendK8s/bin/Release/net9.0/out/out/out/publish/FrontendK8s.staticwebassets.endpoints.json
