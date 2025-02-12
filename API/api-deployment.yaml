@@ -17,6 +17,11 @@ spec:
           image: ssanchez4/api-app:latest
           ports:
             - containerPort: 8000
+          resources:
+            requests:
+              cpu: "50m"
+            limits:
+              cpu: "350m"
           env:
             - name: MONGO_URI
               value: "mongodb://mongodb-service:27017"
