@@ -33,6 +33,7 @@ public class IndexModel : PageModel
         }
 
         var client = httpClientFactory.CreateClient("API");
+        var apiUrl = _configuration["ApiSettings:BaseUrl"] ?? "http://api-service:8000"; // Obtén la URL base
 
         try
         {
@@ -41,9 +42,10 @@ public class IndexModel : PageModel
                 Encoding.UTF8,
                 "application/json"
             );
-            
+
             _logger.LogInformation($"Enviando POST con nombre: {Nombre}");
-            var response = await client.PostAsync("/", content);
+            // **Usar URL absoluta aquí:**
+            var response = await client.PostAsync(apiUrl, content);
             response.EnsureSuccessStatusCode();
 
             await CargarNombres();
@@ -60,10 +62,13 @@ public class IndexModel : PageModel
     private async Task CargarNombres()
     {
         var client = httpClientFactory.CreateClient("API");
+        var apiUrl = _configuration["ApiSettings:BaseUrl"] ?? "http://api-service:8000"; // Obtén la URL base
+
 
         try
         {
-            var response = await client.GetAsync("/");
+            // **Usar URL absoluta aquí:**
+            var response = await client.GetAsync(apiUrl);
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();

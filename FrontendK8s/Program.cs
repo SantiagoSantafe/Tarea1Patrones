@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.Mvc;  // Add this line
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,20 +9,12 @@ builder.WebHost.UseUrls("http://0.0.0.0:80");
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo("/app/keys"));
 
-// Deshabilitar temporalmente la validación antiforgery para pruebas
-builder.Services.AddRazorPages(options =>
-{
-    options.Conventions.AddPageApplicationModelConvention("/",
-        model => model.Filters.Add(new IgnoreAntiforgeryTokenAttribute()));
-});
+builder.Services.AddHttpClient("API", client => { /* ... */ });
 
-builder.Services.AddHttpClient("API", client =>
-{
-    var apiUrl = builder.Configuration["ApiSettings:BaseUrl"];
-    client.BaseAddress = new Uri(apiUrl ?? "http://api-service:8000");
-    client.DefaultRequestHeaders.Accept.Add(
-        new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-});
+builder.Services.AddAuthorization();
+
+// **ADD THIS LINE:**
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
