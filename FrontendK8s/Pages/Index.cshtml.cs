@@ -26,38 +26,42 @@ public class IndexModel : PageModel
     }
 
     public async Task<IActionResult> OnPostAsync()
+{
+    if(string.IsNullOrWhiteSpace(Nombre))
     {
-        if(string.IsNullOrWhiteSpace(Nombre))
-        {
-            return Page();
-        }
-
-        var client = httpClientFactory.CreateClient("API");
-        var apiUrl = _configuration["ApiSettings:BaseUrl"] ?? "http://api-service:8000"; // Obtén la URL base
-
-        try
-        {
-            var content = new StringContent(
-                JsonSerializer.Serialize(new { nombre = Nombre }),
-                Encoding.UTF8,
-                "application/json"
-            );
-
-            _logger.LogInformation($"Enviando POST con nombre: {Nombre}");
-            // **Usar URL absoluta aquí:**
-            var response = await client.PostAsync(apiUrl, content);
-            response.EnsureSuccessStatusCode();
-
-            await CargarNombres();
-            return Page();
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError($"Error en POST: {ex.Message}");
-            ModelState.AddModelError(string.Empty, $"Error guardando nombre: {ex.Message}");
-            return Page();
-        }
+        return Page(); // Si hay un error de validación, puedes seguir mostrando la página actual con errores
     }
+
+    var client = httpClientFactory.CreateClient("API");
+    var apiUrl = _configuration["ApiSettings:BaseUrl"] ?? "http://api-service:8000";
+
+    try
+    {
+        var content = new StringContent(
+            JsonSerializer.Serialize(new { nombre = Nombre }),
+            Encoding.UTF8,
+            "application/json"
+        );
+
+        _logger.LogInformation($"Enviando POST con nombre: {Nombre}");
+        var response = await client.PostAsync(apiUrl, content);
+        response.EnsureSuccessStatusCode();
+
+        // **¡Cambio importante aquí! Redirige de vuelta a la página actual (GET)**
+        return RedirectToPage();
+
+        // No necesitas llamar a CargarNombres() aquí, 
+        // RedirectToPage() hará que OnGetAsync se ejecute de nuevo y cargue los nombres.
+        // await CargarNombres();
+        // return Page(); // Ya no es necesario Page() aquí
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError($"Error en POST: {ex.Message}");
+        ModelState.AddModelError(string.Empty, $"Error guardando nombre: {ex.Message}");
+        return Page(); // Si hay un error al guardar, puedes volver a mostrar la página con el mensaje de error
+    }
+}
 
     private async Task CargarNombres()
     {
