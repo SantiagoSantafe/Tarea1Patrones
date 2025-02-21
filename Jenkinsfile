@@ -62,9 +62,8 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
             script {
                 sh '''
-                    echo $NEXUS_PASS | helm registry login --password-stdin -u $NEXUS_USER nexus.146.190.187.99.nip.io --insecure
                     cd manifestsPatrones
-                    helm cm-push ${CHART_NAME}-*.tgz ${CHART_REPO} --url http://nexus.146.190.187.99.nip.io/repository || echo '❌ Error al subir Helm Chart'
+                    curl -u $NEXUS_USER:$NEXUS_PASS --upload-file ${CHART_NAME}-*.tgz http://nexus.146.190.187.99.nip.io/repository/helm-repo/ || echo '❌ Error al subir Helm Chart'
                 '''
             }
         }
