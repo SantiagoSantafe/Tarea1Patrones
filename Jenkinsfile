@@ -95,22 +95,21 @@ stage('Actualizar Helm Values con yq') {
 }
 
         stage('Push cambios en manifestsPatrones') {
-            steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'github-deploy-key', keyFileVariable: 'SSH_KEY')]) {
-                    script {
-                        sh """
-                            cd manifestsPatrones
-                            git config user.email "jenkins@example.com"
-                            git config user.name "Jenkins CI"
-                            git add ${HELM_MANIFEST_PATH}
-                            git commit -m "🔄 Actualización de Helm values"
-                            GIT_SSH_COMMAND="ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no" git push origin main || echo '❌ Error al hacer push de cambios'
-                        """
-                    }
-                }
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+            script {
+                sh """
+                    cd manifestsPatrones
+                    git config user.email "jenkins@example.com"
+                    git config user.name "Jenkins CI"
+                    git add ${HELM_MANIFEST_PATH}
+                    git commit -m "🔄 Actualización de Helm values" || echo "No changes to commit"
+                    git push https://\${GIT_USER}:\${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git main || echo '❌ Error al hacer push de cambios'
+                """
             }
         }
     }
+}
 
     post {
         success {
