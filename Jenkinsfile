@@ -24,16 +24,13 @@ pipeline {
         }
 
         stage('Checkout Manifests Repo') {
-            steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'github-deploy-key', keyFileVariable: 'SSH_KEY')]) {
-                    script {
-                        sh """
-                            git clone ${DEPLOY_REPO} manifests
-                        """
-                    }
-                }
-            }
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+            sh "git clone https://${GIT_USER}:${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git"
         }
+    }
+}
+
 
         stage('Build Docker Images') {
             steps {
