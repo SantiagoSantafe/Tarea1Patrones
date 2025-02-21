@@ -14,10 +14,10 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/SantiagoSantafe/Tarea1Patrones'
-            }
-        }
+    steps {
+        git branch: 'main', url: 'https://github.com/SantiagoSantafe/Tarea1Patrones'
+    }
+}
 
         stage('Build Docker Image') {
             steps {
