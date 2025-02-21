@@ -70,28 +70,29 @@ pipeline {
     }
 }
 
-        stage('Install Tools') {
+stage('Install Tools') {
     steps {
         sh '''
-            # Install yq if not present
-            if ! command -v yq &> /dev/null; then
-                wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
-                chmod +x /usr/local/bin/yq
+            # Install yq if not present in local directory
+            if ! command -v ./yq &> /dev/null; then
+                wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O yq
+                chmod +x yq
             fi
         '''
     }
 }
-        stage('Actualizar Helm Values con yq') {
-            steps {
-                script {
-                    sh """
-                        cd manifestsPatrones
-                        yq eval -i '.api.image.tag = "latest"' ${HELM_MANIFEST_PATH}
-                        yq eval -i '.frontend.image.tag = "latest"' ${HELM_MANIFEST_PATH}
-                    """
-                }
-            }
+
+stage('Actualizar Helm Values con yq') {
+    steps {
+        script {
+            sh """
+                cd manifestsPatrones
+                ../yq eval -i '.api.image.tag = "latest"' ${HELM_MANIFEST_PATH}
+                ../yq eval -i '.frontend.image.tag = "latest"' ${HELM_MANIFEST_PATH}
+            """
         }
+    }
+}
 
         stage('Push cambios en manifestsPatrones') {
             steps {
