@@ -25,10 +25,10 @@ pipeline {
                 script {
                     def imageTag = "v${env.BUILD_NUMBER}"
                     
-                    // Construir API
+                    // Construir imagen para API
                     sh "docker build -t ${REGISTRY}/${API_IMAGE_NAME}:${imageTag} -f API/Dockerfile API"
                     
-                    // Construir Frontend
+                    // Construir imagen para Frontend
                     sh "docker build -t ${REGISTRY}/${FRONTEND_IMAGE_NAME}:${imageTag} -f FrontendK8s/Dockerfile FrontendK8s"
                 }
             }
@@ -36,7 +36,8 @@ pipeline {
 
         stage('Login to Nexus') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                // Se usa el ID correcto de las credenciales
+                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                     script {
                         sh "echo ${NEXUS_PASS} | docker login -u ${NEXUS_USER} --password-stdin ${REGISTRY}"
                     }
@@ -46,14 +47,10 @@ pipeline {
 
         stage('Push Docker Images') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                     script {
                         def imageTag = "v${env.BUILD_NUMBER}"
-                        
-                        // Subir API
                         sh "docker push ${REGISTRY}/${API_IMAGE_NAME}:${imageTag}"
-                        
-                        // Subir Frontend
                         sh "docker push ${REGISTRY}/${FRONTEND_IMAGE_NAME}:${imageTag}"
                     }
                 }
@@ -70,7 +67,7 @@ pipeline {
 
         stage('Push Helm Chart to Nexus') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                     script {
                         def chartFile = sh(script: "ls ${CHART_NAME}-*.tgz", returnStdout: true).trim()
                         sh "helm push ${chartFile} oci://${REGISTRY}/${CHART_REPO} --username ${NEXUS_USER} --password ${NEXUS_PASS}"
