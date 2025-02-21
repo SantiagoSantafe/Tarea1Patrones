@@ -63,13 +63,24 @@ pipeline {
             script {
                 sh '''
                     cd manifestsPatrones
-                    curl -u $NEXUS_USER:$NEXUS_PASS --upload-file ${CHART_NAME}-*.tgz http://nexus.146.190.187.99.nip.io/repository/helm-repo/ || echo '❌ Error al subir Helm Chart'
+                    curl -u $NEXUS_USER:$NEXUS_PASS --upload-file ${CHART_NAME}-*.tgz https://nexus.146.190.187.99.nip.io/repository/helm-repo/ -k || echo '❌ Error al subir Helm Chart'
                 '''
             }
         }
     }
 }
 
+        stage('Install Tools') {
+    steps {
+        sh '''
+            # Install yq if not present
+            if ! command -v yq &> /dev/null; then
+                wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
+                chmod +x /usr/local/bin/yq
+            fi
+        '''
+    }
+}
         stage('Actualizar Helm Values con yq') {
             steps {
                 script {
