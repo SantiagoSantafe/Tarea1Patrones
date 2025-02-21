@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     environment {
         REGISTRY = "nexus.146.190.187.99.nip.io"
         CHART_NAME = "chartpatrones"
@@ -8,18 +7,16 @@ pipeline {
         DEPLOY_REPO = "git@github.com:SantiagoSantafe/manifestsPatrones.git"
         HELM_MANIFEST_PATH = "chartpatrones/values.yaml"
     }
-
     triggers {
         githubPush()
     }
-
     stages {
         stage('Checkout Código Fuente') {
             steps {
                 git branch: 'main', url: 'https://github.com/SantiagoSantafe/Tarea1Patrones'
             }
         }
-
+        
         stage('Checkout Manifests Repo') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
@@ -37,6 +34,8 @@ pipeline {
                                 git clone https://${GIT_USER}:${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git
                             """
                         }
+                        
+                        // Verifica si chartpatrones existe
                         sh "ls -la manifestsPatrones/chartpatrones || echo '❌ chartpatrones NO encontrado'"
                     }
                 }
@@ -70,6 +69,7 @@ pipeline {
         stage('Install Tools') {
             steps {
                 sh '''
+                    # Install yq if not present in local directory
                     if ! command -v ./yq &> /dev/null; then
                         wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O yq
                         chmod +x yq
@@ -107,7 +107,7 @@ pipeline {
             }
         }
     }
-
+    
     post {
         success {
             echo "✅ Pipeline completed successfully!"
