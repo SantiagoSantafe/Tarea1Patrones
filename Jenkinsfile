@@ -45,23 +45,26 @@ pipeline {
             }
         }
 
-        stage('Empaquetar Helm Chart') {
-            steps {
-                script {
-                    sh """
-                        helm package ${CHART_NAME} --destination . || echo '❌ Error al empaquetar Helm Chart'
-                    """
-                }
-            }
+       stage('Empaquetar Helm Chart') {
+    steps {
+        script {
+            sh """
+                cd manifestsPatrones
+                helm package ${CHART_NAME} --destination .
+            """
         }
+    }
+}
+
 
         stage('Subir Helm Chart a Nexus') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                     script {
                         sh """
-                            helm registry login -u ${NEXUS_USER} -p ${NEXUS_PASS} ${REGISTRY}
-                            helm push ${CHART_NAME}-*.tgz oci://${REGISTRY}/repository/${CHART_REPO} || echo '❌ Error al subir Helm Chart'
+                            helm registry login --skip-tls-verify -u ${NEXUS_USER} -p ${NEXUS_PASS} https://${REGISTRY}
+                            helm push ${CHART_NAME}-*.tgz oci://${REGISTRY}/repository/${CHART_REPO} --skip-tls-verify
+ || echo '❌ Error al subir Helm Chart'
                         """
                     }
                 }
