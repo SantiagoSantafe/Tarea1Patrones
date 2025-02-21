@@ -21,12 +21,23 @@ pipeline {
         }
 
         stage('Checkout Manifests Repo') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+            script {
+                if (fileExists('manifestsPatrones/.git')) {
+                    sh """
+                        cd manifestsPatrones
+                        git reset --hard origin/main
+                        git pull
+                    """
+                } else {
                     sh "git clone https://${GIT_USER}:${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git"
                 }
             }
         }
+    }
+}
+
 
         stage('Empaquetar Helm Chart') {
             steps {
