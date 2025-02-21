@@ -5,8 +5,11 @@ pipeline {
         REGISTRY = "nexus.146.190.187.99.nip.io"
         API_IMAGE_NAME = "mi-aplicacion-api"
         FRONTEND_IMAGE_NAME = "mi-aplicacion-frontend"
+        IMAGE_TAG = "v${env.BUILD_NUMBER}"
         CHART_NAME = "chartpatrones"
         CHART_REPO = "helm-repo"
+        DEPLOY_REPO = "git@github.com:SantiagoSantafe/manifestsPatrones.git"
+        HELM_MANIFEST_PATH = "chartpatrones/values.yaml"
     }
 
     triggers {
@@ -14,29 +17,37 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Código Fuente') {
             steps {
                 git branch: 'main', url: 'https://github.com/SantiagoSantafe/Tarea1Patrones'
+            }
+        }
+
+        stage('Checkout Manifests Repo') {
+            steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'github-deploy-key', keyFileVariable: 'SSH_KEY')]) {
+                    script {
+                        sh """
+                            git clone ${DEPLOY_REPO} manifests
+                        """
+                    }
+                }
             }
         }
 
         stage('Build Docker Images') {
             steps {
                 script {
-                    def imageTag = "v${env.BUILD_NUMBER}"
-                    
-                    // Construir imagen para API
-                    sh "docker build -t ${REGISTRY}/${API_IMAGE_NAME}:${imageTag} -f API/Dockerfile API"
-                    
-                    // Construir imagen para Frontend
-                    sh "docker build -t ${REGISTRY}/${FRONTEND_IMAGE_NAME}:${imageTag} -f FrontendK8s/Dockerfile FrontendK8s"
+                    sh """
+                        docker build -t ${REGISTRY}/${API_IMAGE_NAME}:${IMAGE_TAG} -f API/Dockerfile API
+                        docker build -t ${REGISTRY}/${FRONTEND_IMAGE_NAME}:${IMAGE_TAG} -f FrontendK8s/Dockerfile FrontendK8s
+                    """
                 }
             }
         }
 
         stage('Login to Nexus') {
             steps {
-                // Se usa el ID correcto de las credenciales
                 withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                     script {
                         sh "echo ${NEXUS_PASS} | docker login -u ${NEXUS_USER} --password-stdin ${REGISTRY}"
@@ -47,39 +58,40 @@ pipeline {
 
         stage('Push Docker Images') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                    script {
-                        def imageTag = "v${env.BUILD_NUMBER}"
-                        sh "docker push ${REGISTRY}/${API_IMAGE_NAME}:${imageTag}"
-                        sh "docker push ${REGISTRY}/${FRONTEND_IMAGE_NAME}:${imageTag}"
-                    }
+                script {
+                    sh """
+                        docker push ${REGISTRY}/${API_IMAGE_NAME}:${IMAGE_TAG}
+                        docker push ${REGISTRY}/${FRONTEND_IMAGE_NAME}:${IMAGE_TAG}
+                    """
                 }
             }
         }
 
-        stage('Package Helm Chart') {
+        stage('Actualizar Helm Values con yq') {
             steps {
                 script {
-                    sh "helm package charts/${CHART_NAME}"
+                    sh """
+                        cd manifests
+                        yq eval -i '.api.image.tag = "${IMAGE_TAG}"' ${HELM_MANIFEST_PATH}
+                        yq eval -i '.frontend.image.tag = "${IMAGE_TAG}"' ${HELM_MANIFEST_PATH}
+                    """
                 }
             }
         }
 
-        stage('Push Helm Chart to Nexus') {
+        stage('Push cambios en manifestsPatrones') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'github-deploy-key', keyFileVariable: 'SSH_KEY')]) {
                     script {
-                        def chartFile = sh(script: "ls ${CHART_NAME}-*.tgz", returnStdout: true).trim()
-                        sh "helm push ${chartFile} oci://${REGISTRY}/${CHART_REPO} --username ${NEXUS_USER} --password ${NEXUS_PASS}"
+                        sh """
+                            cd manifests
+                            git config user.email "jenkins@example.com"
+                            git config user.name "Jenkins CI"
+                            git add ${HELM_MANIFEST_PATH}
+                            git commit -m "🔄 Actualización de imagen a ${IMAGE_TAG}"
+                            GIT_SSH_COMMAND="ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no" git push origin main
+                        """
                     }
-                }
-            }
-        }
-
-        stage('Update Helm Repo') {
-            steps {
-                script {
-                    sh "helm repo update"
                 }
             }
         }
