@@ -61,10 +61,9 @@ pipeline {
     steps {
         withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
             script {
-                // Use environment variables safely
                 sh '''
-                    echo $NEXUS_PASS | helm registry login --password-stdin -u $NEXUS_USER https://${REGISTRY} --insecure
-                    helm push ${CHART_NAME}-*.tgz oci://${REGISTRY}/repository/${CHART_REPO} --insecure || echo '❌ Error al subir Helm Chart'
+                    echo $NEXUS_PASS | helm registry login --password-stdin -u $NEXUS_USER nexus.146.190.187.99.nip.io/repository/${CHART_REPO} --insecure
+                    helm push ${CHART_NAME}-*.tgz oci://nexus.146.190.187.99.nip.io/repository/${CHART_REPO} --insecure || echo '❌ Error al subir Helm Chart'
                 '''
             }
         }
