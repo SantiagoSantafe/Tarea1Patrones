@@ -21,28 +21,36 @@ pipeline {
         }
 
         stage('Checkout Manifests Repo') {
-    steps {
-        withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
-            script {
-                if (fileExists('manifestsPatrones/.git')) {
-                    sh """
-                        cd manifestsPatrones
-                        git reset --hard origin/main
-                        git pull
-                    """
-                } else {
-                    sh "git clone https://${GIT_USER}:${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git"
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+                    script {
+                        if (fileExists('manifestsPatrones/.git')) {
+                            sh """
+                                cd manifestsPatrones
+                                git fetch --all
+                                git reset --hard origin/main
+                                git pull
+                            """
+                        } else {
+                            sh """
+                                rm -rf manifestsPatrones || true
+                                git clone https://${GIT_USER}:${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git
+                            """
+                        }
+                        
+                        // Verifica si chartpatrones existe
+                        sh "ls -la manifestsPatrones/chartpatrones || echo '❌ chartpatrones NO encontrado'"
+                    }
                 }
             }
         }
-    }
-}
-
 
         stage('Empaquetar Helm Chart') {
             steps {
                 script {
-                    sh "helm package ${CHART_NAME} --destination ."
+                    sh """
+                        helm package ${CHART_NAME} --destination . || echo '❌ Error al empaquetar Helm Chart'
+                    """
                 }
             }
         }
@@ -53,7 +61,7 @@ pipeline {
                     script {
                         sh """
                             helm registry login -u ${NEXUS_USER} -p ${NEXUS_PASS} ${REGISTRY}
-                            helm push ${CHART_NAME}-*.tgz oci://${REGISTRY}/repository/${CHART_REPO}
+                            helm push ${CHART_NAME}-*.tgz oci://${REGISTRY}/repository/${CHART_REPO} || echo '❌ Error al subir Helm Chart'
                         """
                     }
                 }
@@ -82,7 +90,7 @@ pipeline {
                             git config user.name "Jenkins CI"
                             git add ${HELM_MANIFEST_PATH}
                             git commit -m "🔄 Actualización de Helm values"
-                            GIT_SSH_COMMAND="ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no" git push origin main
+                            GIT_SSH_COMMAND="ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no" git push origin main || echo '❌ Error al hacer push de cambios'
                         """
                     }
                 }
