@@ -2,20 +2,15 @@ pipeline {
     agent any
 
     environment {
-        // ** REGISTRO DE IMÁGENES CAMBIADO A DOCKER HUB **
         REGISTRY = "docker.io"
         CHART_NAME = "chartpatrones"
         CHART_REPO = "helm-repo"
         DEPLOY_REPO = "git@github.com:SantiagoSantafe/manifestsPatrones.git"
-        HELM_MANIFEST_PATH = "chartpatrones/values.yaml" // **PATH IS RELATIVE TO REPO ROOT NOW**
-        // ** Nombres de imágenes en Docker Hub - AMBAS IMÁGENES AHORA BAJO 'santiagosantafe' **
+        HELM_MANIFEST_PATH = "chartpatrones/values.yaml"
         API_IMAGE_NAME = "${REGISTRY}/santiagosantafe/api-app"
         FRONTEND_IMAGE_NAME = "${REGISTRY}/santiagosantafe/tareak8s"
-        IMAGE_TAG = "${env.GIT_COMMIT.substring(0, 7)}"
-        // ** CREDENCIALES DE DOCKER HUB - USANDO SOLO LAS DE 'santafe' PARA AMBAS IMÁGENES **
         DOCKERHUB_CREDENTIALS_SANTAFE_ID = 'ss-dockerhub-token'
         NEXUS_HELM_REPO_URL = "https://nexus.146.190.187.99.nip.io/repository/helm-repo/"
-        // ** NUEVA VARIABLE: VERSION DEL HELM CHART DINÁMICA **
         CHART_VERSION = "0.1.${BUILD_NUMBER}"
     }
 
@@ -24,23 +19,24 @@ pipeline {
     }
 
     options {
-        // Explicit workspace cleanup at the start of pipeline runs
         skipDefaultCheckout()
     }
 
-
     stages {
-
-
-    stage('Cleanup Workspace') {
+        stage('Cleanup Workspace') {
             steps {
-                cleanWs()  // Clean workspace before build
+                cleanWs()
             }
         }
         
         stage('Checkout Código Fuente') {
             steps {
-                git branch: 'main', url: 'https://github.com/SantiagoSantafe/Tarea1Patrones'
+                script {
+                    // Checkout code first
+                    git branch: 'main', url: 'https://github.com/SantiagoSantafe/Tarea1Patrones'
+                    // Then set IMAGE_TAG based on the commit
+                    env.IMAGE_TAG = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+                }
             }
         }
 
