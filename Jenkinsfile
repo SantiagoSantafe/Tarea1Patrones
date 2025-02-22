@@ -28,7 +28,7 @@ pipeline {
                 cleanWs()
             }
         }
-        
+
         stage('Checkout Código Fuente') {
             steps {
                 script {
@@ -78,7 +78,7 @@ pipeline {
             }
         }
 
-                stage('Checkout Manifests Repo') {
+        stage('Checkout Manifests Repo') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
                     script {
@@ -157,7 +157,7 @@ pipeline {
             }
         }
 
-        stage('Subir Helm Chart a Nexus (Opcional)') {
+        stage('Subir Helm Chart a Nexus') { // <-- NOMBRE DE ETAPA MODIFICADO: "Subir Helm Chart a Nexus" (sin "Opcional")
         steps {
             withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                 script {
@@ -169,21 +169,17 @@ pipeline {
                             exit 1
                         fi
 
-                        echo "📦 Subiendo Helm Chart: ${HELM_CHART_FILE} a Nexus..."
+                        echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
                     '''
-
-                    // Using curl with -k flag to skip SSL verification
-                    sh """
-                        cd manifestsPatrones
-                        CHART_FILE=\$(find . -name "*.tgz" -print | head -n 1)
-                        curl -k -u "${NEXUS_USER}:${NEXUS_PASS}" --upload-file "\${CHART_FILE}" "${NEXUS_HELM_REPO_URL}/\$(basename \${CHART_FILE})"
-                        if [ \$? -eq 0 ]; then
+                    sh "helm push manifestsPatrones/*.tgz ${NEXUS_HELM_REPO_URL} --username ${NEXUS_USER} --password ${NEXUS_PASS}"
+                    sh '''
+                        if [ $? -eq 0 ]; then
                             echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
                         else
                             echo "❌ Error al subir el Helm Chart a Nexus"
                             exit 1
                         fi
-                    """
+                    '''
                 }
             }
         }
