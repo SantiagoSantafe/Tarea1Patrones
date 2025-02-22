@@ -172,40 +172,44 @@ pipeline {
             }
         }
 
-                                stage('Subir Helm Chart a Nexus') {
-                    steps {
-                        withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                            script {
-                                sh '''
-                                    cd manifestsPatrones
-                                    HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
-                                    if [ -z "${HELM_CHART_FILE}" ]; then
-                                        echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
-                                        exit 1
-                                    fi
-                
-                                    echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
-                
-                                    # Verificar archivo
-                                    if [ ! -f "${HELM_CHART_FILE}" ]; then
-                                        echo "❌ ERROR: El archivo ${HELM_CHART_FILE} no existe!"
-                                        exit 1
-                                    fi
-                
-                                    # Subir usando curl
-                                    curl -k -u "${NEXUS_USER}:${NEXUS_PASS}" --upload-file "${HELM_CHART_FILE}" "${NEXUS_HELM_REPO_URL}/$(basename ${HELM_CHART_FILE})"
-                                    
-                                    if [ $? -eq 0 ]; then
-                                        echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
-                                    else
-                                        echo "❌ Error al subir el Helm Chart a Nexus"
-                                        exit 1
-                                    fi
-                                '''
-                            }
-                        }
+        stage('Subir Helm Chart a Nexus') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                    script {
+                        sh '''
+                            cd manifestsPatrones # **CD TO MANIFESTS ROOT AT THE VERY BEGINNING**
+
+                            HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
+                            if [ -z "${HELM_CHART_FILE}" ]; then
+                                echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
+                                exit 1
+                            fi
+
+                            echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
+
+                            # **DEBUG: CHECK HELM BINARY EXISTS AND PERMISSIONS**
+                            ls -l ./helm
+                            if [ ! -x "./helm" ]; then
+                                echo "❌ ERROR: Helm binary './helm' is NOT executable!"
+                                exit 1
+                            fi
+                            echo "✅ Helm binary './helm' exists and is executable."
+
+
+                            ./helm push manifestsPatrones/*.tgz ${NEXUS_HELM_REPO_URL} --username ${NEXUS_USER} --password ${NEXUS_PASS}
+                            if [ $? -eq 0 ]; then
+                                echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
+                            else
+                                echo "❌ Error al subir el Helm Chart a Nexus"
+                                exit 1
+                            fi
+                        '''
                     }
                 }
+            }
+        }
+
+
         stage('Push cambios en manifestsPatrones') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
