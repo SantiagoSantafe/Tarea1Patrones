@@ -8,13 +8,12 @@ pipeline {
         CHART_REPO = "helm-repo"       // Ya no se usa para imágenes, solo para el chart en Nexus (opcional)
         DEPLOY_REPO = "git@github.com:SantiagoSantafe/manifestsPatrones.git"
         HELM_MANIFEST_PATH = "chartpatrones/values.yaml"
-        // ** Nombres de imágenes en Docker Hub (usuarios Docker Hub: ssanchez04 y santiagosantafe) **
-        API_IMAGE_NAME = "${REGISTRY}/ssanchez4/api-app"      // Usuario Docker Hub para API: ssanchez04
-        FRONTEND_IMAGE_NAME = "${REGISTRY}/santiagosantafe/tareak8s" // Usuario Docker Hub para Frontend: santiagosantafe
+        // ** Nombres de imágenes en Docker Hub - AMBAS IMÁGENES AHORA BAJO 'santiagosantafe' **
+        API_IMAGE_NAME = "${REGISTRY}/santiagosantafe/api-app"      // **CORREGIDO: API ahora también a santiagosantafe**
+        FRONTEND_IMAGE_NAME = "${REGISTRY}/santiagosantafe/tareak8s"
         IMAGE_TAG = "${env.GIT_COMMIT.substring(0, 7)}" // Tag dinámico basado en Commit SHA (ejemplo)
-        // ** CREDENCIALES DE DOCKER HUB DEFINIDAS COMO VARIABLES **
-        DOCKERHUB_CREDENTIALS_SANCHEZ_ID = 'dockerhub-token'      // ID de credenciales Jenkins para API (usuario sanchez)
-        DOCKERHUB_CREDENTIALS_SANTAFE_ID = 'ss-dockerhub-token'   // ID de credenciales Jenkins para Frontend (usuario santafe)
+        // ** CREDENCIALES DE DOCKER HUB - USANDO SOLO LAS DE 'santafe' PARA AMBAS IMÁGENES **
+        DOCKERHUB_CREDENTIALS_SANTAFE_ID = 'ss-dockerhub-token'   // ID de credenciales de Jenkins para AMBAS imágenes (usuario santafe) - **CORREGIDO: Usando solo las credenciales de 'santafe'**
     }
 
     triggers {
@@ -28,56 +27,42 @@ pipeline {
             }
         }
 
-        stage('Docker Login API') { // **Docker Login para API con credenciales 'sanchez' - CORREGIDO**
+        stage('Docker Login') { // **STAGE MODIFICADO: Docker Login -  Usando credenciales 'santafe' para AMBAS**
             steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS_SANCHEZ_ID}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS' // Login a Docker Hub con credenciales de API (usuario sanchez)
+                script {
+                    withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS_SANTAFE_ID}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS' // Login a Docker Hub con credenciales de 'santafe'
+                    }
                 }
             }
         }
 
-        stage('Build and Push Docker Images API') { // **Build y Push de la imagen de la API - CORREGIDO**
+        stage('Build and Push Docker Images API') { // **STAGE MODIFICADO: Build y Push de la API -  A santiagosantafe**
             steps {
                 script {
                     // ** Construir y Pushear imagen de la API a Docker Hub **
                     sh "docker build -t ${API_IMAGE_NAME}:${IMAGE_TAG} ./API" // Contexto correcto: ./API
                     sh "docker push ${API_IMAGE_NAME}:${IMAGE_TAG}"
-                    echo "✅ Imagen Docker de la API pushada a Docker Hub (usuario sanchez) con tag: ${IMAGE_TAG}"
+                    echo "✅ Imagen Docker de la API pushada a Docker Hub (usuario santiagosantafe) con tag: ${IMAGE_TAG}" // **CORREGIDO: Mensaje a santiagosantafe**
                 }
             }
         }
 
-        stage('Docker Logout API') { // **Docker Logout después de pushear la API - CORREGIDO**
-            steps {
-                script {
-                    sh "docker logout docker.io" // Logout de Docker Hub después de pushear la API (usuario sanchez)
-                }
-            }
-        }
-
-        stage('Docker Login Frontend') { // **Docker Login para Frontend con credenciales 'santafe' - CORREGIDO**
-            steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS_SANTAFE_ID}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS' // Login a Docker Hub con credenciales de Frontend (usuario santafe)
-                }
-            }
-        }
-
-        stage('Build and Push Docker Images Frontend') { // **Build y Push de la imagen del Frontend - CORREGIDO**
+        stage('Build and Push Docker Images Frontend') { // **STAGE MODIFICADO: Build y Push del Frontend - A santiagosantafe**
             steps {
                 script {
                     // ** Construir y Pushear imagen del Frontend a Docker Hub **
                     sh "docker build -t ${FRONTEND_IMAGE_NAME}:${IMAGE_TAG} ./FrontendK8s" // Contexto correcto: ./FrontendK8s
                     sh "docker push ${FRONTEND_IMAGE_NAME}:${IMAGE_TAG}"
-                    echo "✅ Imagen Docker del Frontend pushada a Docker Hub (usuario santafe) con tag: ${IMAGE_TAG}"
+                    echo "✅ Imagen Docker del Frontend pushada a Docker Hub (usuario santiagosantafe) con tag: ${IMAGE_TAG}" // **CORREGIDO: Mensaje a santiagosantafe**
                 }
             }
         }
 
-        stage('Docker Logout Frontend') { // **Docker Logout después de pushear el Frontend - CORREGIDO**
+        stage('Docker Logout') { // **STAGE MODIFICADO: Docker Logout -  Logout general (ya que usamos las mismas credenciales)**
             steps {
                 script {
-                    sh "docker logout docker.io" // Logout de Docker Hub después de pushear el Frontend (usuario santafe)
+                    sh "docker logout docker.io" // Logout de Docker Hub
                 }
             }
         }
