@@ -187,14 +187,14 @@ pipeline {
                 sh '''
                     cd manifestsPatrones
                     HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
-                    
+
                     echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
-                    
+
                     curl -v -u "${NEXUS_USER}:${NEXUS_PASS}" \
                          --upload-file "${HELM_CHART_FILE}" \
                          "${NEXUS_HELM_REPO_URL}${HELM_CHART_FILE#./}" \
                          --insecure
-                         
+
                     if [ $? -eq 0 ]; then
                         echo "✅ Helm Chart subido exitosamente a Nexus"
                     else
