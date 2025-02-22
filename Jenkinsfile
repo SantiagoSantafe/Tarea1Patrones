@@ -177,50 +177,50 @@ pipeline {
         }
 
         stage('Subir Helm Chart a Nexus') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                    script {
-                        sh '''
-                            cd manifestsPatrones
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+            script {
+                sh '''
+                    cd manifestsPatrones
 
-                            HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
-                            if [ -z "${HELM_CHART_FILE}" ]; then
-                                echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
-                                exit 1
-                            fi
+                    HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
+                    if [ -z "${HELM_CHART_FILE}" ]; then
+                        echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
+                        exit 1
+                    fi
 
-                            echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
+                    echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
 
-                            # Verificar archivo
-                            if [ ! -f "${HELM_CHART_FILE}" ]; then
-                                echo "❌ ERROR: El archivo ${HELM_CHART_FILE} no existe!"
-                                exit 1
-                            fi
+                    # Verificar archivo
+                    if [ ! -f "${HELM_CHART_FILE}" ]; then
+                        echo "❌ ERROR: El archivo ${HELM_CHART_FILE} no existe!"
+                        exit 1
+                    fi
 
-                            # **Autenticar con Helm Registry Login - INSECURE: --insecure-skip-tls-verify**
-                            echo "🔐 Autenticando con helm registry login (INSECURE --insecure-skip-tls-verify)..."
-                            ./helm registry login ${NEXUS_HELM_REPO_URL} --username "${NEXUS_USER}" --password "${NEXUS_PASS}" --insecure-skip-tls-verify  **<-- Explicit path: ./helm**
-                            if [ $? -ne 0 ]; then
-                                echo "❌ Error en helm registry login. Fallando pipeline."
-                                exit 1
-                            fi
-                            echo "✅ Autenticación exitosa con helm registry login (INSECURE --insecure-skip-tls-verify)."
+                    # **Autenticar con Helm Registry Login - INSECURE: --insecure-skip-tls-verify**
+                    echo "🔐 Autenticando con helm registry login (INSECURE --insecure-skip-tls-verify)..."
+                    "./helm registry login ${NEXUS_HELM_REPO_URL} --username \\"${NEXUS_USER}\\" --password \\"${NEXUS_PASS}\\" --insecure-skip-tls-verify"  **<-- Double-quote entire command & escape quotes inside variables**
+                    if [ $? -ne 0 ]; then
+                        echo "❌ Error en helm registry login. Fallando pipeline."
+                        exit 1
+                    fi
+                    echo "✅ Autenticación exitosa con helm registry login (INSECURE --insecure-skip-tls-verify)."
 
 
-                            # **Subir Helm Chart (sin flags de usuario/contraseña)**
-                            echo "🚀 Pushing Helm chart usando ./helm push..."
-                            ./helm push "${HELM_CHART_FILE}" ${NEXUS_HELM_REPO_URL}  **<-- Explicit path: ./helm**
-                            if [ $? -eq 0 ]; then
-                                echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
-                            else
-                                echo "❌ Error al subir el Helm Chart a Nexus usando ./helm push"
-                                exit 1
-                            fi
-                        '''
-                    }
-                }
+                    # **Subir Helm Chart (sin flags de usuario/contraseña)**
+                    echo "🚀 Pushing Helm chart usando ./helm push..."
+                    ./helm push "${HELM_CHART_FILE}" ${NEXUS_HELM_REPO_URL}
+                    if [ $? -eq 0 ]; then
+                        echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
+                    else
+                        echo "❌ Error al subir el Helm Chart a Nexus usando ./helm push"
+                        exit 1
+                    fi
+                '''
             }
         }
+    }
+}
         stage('Push cambios en manifestsPatrones') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
