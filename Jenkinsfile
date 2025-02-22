@@ -123,6 +123,16 @@ pipeline {
             }
         }
 
+        stage('Upgrade Helm CLI') { // <-- **NEW STAGE: Helm Upgrade**
+            steps {
+                sh '''
+                    sudo apt-get update
+                    sudo apt-get install --only-upgrade helm -y
+                    helm version
+                '''
+            }
+        }
+
         stage('Actualizar Helm Values con yq') {
             steps {
                 script {
@@ -157,7 +167,7 @@ pipeline {
             }
         }
 
-        stage('Subir Helm Chart a Nexus') { // <-- NOMBRE DE ETAPA MODIFICADO: "Subir Helm Chart a Nexus" (sin "Opcional")
+        stage('Subir Helm Chart a Nexus') {
         steps {
             withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                 script {
