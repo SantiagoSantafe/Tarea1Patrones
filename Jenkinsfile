@@ -25,8 +25,14 @@ pipeline {
 
     options {
         // Explicit workspace cleanup at the start of pipeline runs
-        cleanupWorkspace()
+        skipDefaultCheckout()
     }
+
+    stage('Cleanup Workspace') {
+            steps {
+                cleanWs()  // Clean workspace before build
+            }
+        }
 
     stages {
         stage('Checkout Código Fuente') {
