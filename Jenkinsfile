@@ -133,6 +133,10 @@ pipeline {
                     else
                         echo "Helm CLI ya existe en el workspace."
                     fi
+
+                    # **VERIFY HELM VERSION**
+                    echo "Helm Version:"
+                    ./helm version --short # Print short version info
                 '''
             }
         }
