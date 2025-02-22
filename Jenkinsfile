@@ -28,13 +28,16 @@ pipeline {
         skipDefaultCheckout()
     }
 
+
+    stages {
+
+
     stage('Cleanup Workspace') {
             steps {
                 cleanWs()  // Clean workspace before build
             }
         }
-
-    stages {
+        
         stage('Checkout Código Fuente') {
             steps {
                 git branch: 'main', url: 'https://github.com/SantiagoSantafe/Tarea1Patrones'
