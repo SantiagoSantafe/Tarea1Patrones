@@ -180,13 +180,19 @@ pipeline {
     }
 }
 
-        stage('Subir Helm Chart a Nexus') {
+       stage('Subir Helm Chart a Nexus') {
     steps {
         withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
             script {
                 sh '''
                     cd manifestsPatrones
-                    HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
+                    # **CORRECTED find command to select the newly packaged chart**
+                    HELM_CHART_FILE=$(find . -maxdepth 1 -name "chartpatrones-*.tgz" -print | head -n 1)
+
+                    if [ -z "${HELM_CHART_FILE}" ]; then
+                        echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz) en el directorio actual."
+                        exit 1
+                    fi
 
                     echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
 
