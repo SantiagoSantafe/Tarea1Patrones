@@ -184,23 +184,23 @@ pipeline {
                                 echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
                                 exit 1
                             fi
-
+                
                             echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
-
+                
                             # Verificar archivo
                             if [ ! -f "${HELM_CHART_FILE}" ]; then
                                 echo "❌ ERROR: El archivo ${HELM_CHART_FILE} no existe!"
                                 exit 1
                             fi
-
-                            # **Autenticar con Helm Registry Login**
-                            echo "🔐 Autenticando con helm registry login..."
-                            ./helm registry login ${NEXUS_HELM_REPO_URL} --username "${NEXUS_USER}" --password "${NEXUS_PASS}"
+                
+                            # **Autenticar con Helm Registry Login - INSECURE: --insecure-skip-tls-verify**
+                            echo "🔐 Autenticando con helm registry login (INSECURE --insecure-skip-tls-verify)..."
+                            ./helm registry login ${NEXUS_HELM_REPO_URL} --username "${NEXUS_USER}" --password "${NEXUS_PASS}" --insecure-skip-tls-verify
                             if [ $? -ne 0 ]; then
                                 echo "❌ Error en helm registry login. Fallando pipeline."
                                 exit 1
                             fi
-                            echo "✅ Autenticación exitosa con helm registry login."
+                            echo "✅ Autenticación exitosa con helm registry login (INSECURE --insecure-skip-tls-verify)."
 
 
                             # **Subir Helm Chart (sin flags de usuario/contraseña)**
@@ -217,8 +217,6 @@ pipeline {
                 }
             }
         }
-
-
         stage('Push cambios en manifestsPatrones') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
