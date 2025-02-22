@@ -8,8 +8,8 @@ pipeline {
         DEPLOY_REPO = "git@github.com:SantiagoSantafe/manifestsPatrones.git"
         HELM_MANIFEST_PATH = "chartpatrones/values.yaml"
         // ** Nombres de imágenes en Docker Hub (usuario de Docker Hub: santiagosantafe - ADAPTAR SI ES OTRO) **
-        API_IMAGE_NAME = "${REGISTRY}ssanchez4/api-app"
-        FRONTEND_IMAGE_NAME = "${REGISTRY}santiagosantafe/tareak8s:frontend"
+        API_IMAGE_NAME = "${REGISTRY}/ssanchez4/api-app"  // **CORREGIDO: Usuario Docker Hub y sin tag aquí**
+        FRONTEND_IMAGE_NAME = "${REGISTRY}/santiagosantafe/tareak8s" // **CORREGIDO: Usuario Docker Hub, nombre base, sin tag aquí**
         IMAGE_TAG = "${env.GIT_COMMIT.substring(0, 7)}" // Tag dinámico basado en Commit SHA (ejemplo)
     }
     triggers {
@@ -26,11 +26,11 @@ pipeline {
             steps {
                 script {
                     // ** Construir y Pushear imagen de la API a Docker Hub **
-                    sh "docker build -t ${API_IMAGE_NAME}:${IMAGE_TAG} ./API/Dockerfile" // **ADAPTAR RUTA AL DOCKERFILE DE LA API**
+                    sh "docker build -t ${API_IMAGE_NAME}:${IMAGE_TAG} ./API" // **CORREGIDO: Contexto correcto: ./API, Dockerfile se asume dentro**
                     sh "docker push ${API_IMAGE_NAME}:${IMAGE_TAG}"
 
                     // ** Construir y Pushear imagen del Frontend a Docker Hub **
-                    sh "docker build -t ${FRONTEND_IMAGE_NAME}:${IMAGE_TAG} ./FrontendK8s/Dockerfile" // **ADAPTAR RUTA AL DOCKERFILE DEL FRONTEND**
+                    sh "docker build -t ${FRONTEND_IMAGE_NAME}:${IMAGE_TAG} ./FrontendK8s" // **CORREGIDO: Contexto correcto: ./FrontendK8s, Dockerfile se asume dentro**
                     sh "docker push ${FRONTEND_IMAGE_NAME}:${IMAGE_TAG}"
 
                     echo "✅ Imágenes Docker pushadas a Docker Hub con tag: ${IMAGE_TAG}"
