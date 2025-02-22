@@ -73,31 +73,33 @@ pipeline {
             }
         }
 
-        stage('Checkout Manifests Repo') {
+                stage('Checkout Manifests Repo') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
                     script {
                         if (fileExists('manifestsPatrones/.git')) {
-                            sh """
+                            sh '''
                                 cd manifestsPatrones
                                 git fetch --all
                                 git reset --hard origin/main
                                 # git pull
-                                echo "ℹ️  Manifests Repo: Después de fetch y reset:"
+                                echo "i  Manifests Repo: Después de fetch y reset:"
                                 git log --oneline -n 5
                                 git status
                                 ls -la chartpatrones
-                            """
+                            '''
                         } else {
-                            sh "rm -rf manifestsPatrones || true"
-                            sh "git clone https://\${GIT_USER}:\${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git"
-                            sh "ls -la manifestsPatrones/chartpatrones || echo '❌ chartpatrones NO encontrado'"
-                            sh "ls -la manifestsPatrones"
-                            echo "ℹ️ Manifests Repo: Después de clonar:"
-                            sh "cd manifestsPatrones"
-                            git log --oneline -n 5
-                            git status
-                            ls -la chartpatrones
+                            sh '''
+                                rm -rf manifestsPatrones || true
+                                git clone https://${GIT_USER}:${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git
+                                cd manifestsPatrones
+                                ls -la chartpatrones || echo '❌ chartpatrones NO encontrado'
+                                ls -la
+                                echo "i Manifests Repo: Después de clonar:"
+                                git log --oneline -n 5
+                                git status
+                                ls -la chartpatrones
+                            '''
                         }
                     }
                 }
