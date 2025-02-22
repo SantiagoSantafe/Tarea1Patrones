@@ -164,17 +164,21 @@ pipeline {
 
 
         stage('Empaquetar Helm Chart') {
-            steps {
-                script {
-                    sh """
-                        cd manifestsPatrones
-                        # **USANDO HELM DESCARGADO LOCALMENTE:  ./helm package ...**
-                        ./helm package ${CHART_NAME} --version ${CHART_VERSION} --destination .
-                        echo "📦 Helm Chart empaquetado con versión: ${CHART_VERSION}"
-                    """
-                }
-            }
+    steps {
+        script {
+            sh """
+                cd manifestsPatrones
+                # Primero actualizar la versión en Chart.yaml
+                ../yq eval -i '.version = "${CHART_VERSION}"' ${CHART_NAME}/Chart.yaml
+                # Luego empaquetar con la nueva versión
+                ./helm package ${CHART_NAME} --version ${CHART_VERSION} --destination .
+                echo "📦 Helm Chart empaquetado con versión: ${CHART_VERSION}"
+                # Verificar el contenido del paquete creado
+                ls -la *.tgz
+            """
         }
+    }
+}
 
         stage('Subir Helm Chart a Nexus') {
     steps {
