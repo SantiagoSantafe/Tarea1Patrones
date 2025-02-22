@@ -80,7 +80,7 @@ pipeline {
                         } else {
                             sh """
                                 rm -rf manifestsPatrones || true
-                                git clone https://${GIT_USER}:${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git
+                                git clone https://\${GIT_USER}:\${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git
                             """
                         }
                         // Verifica si chartpatrones existe (opcional para debug)
