@@ -14,6 +14,7 @@ pipeline {
         IMAGE_TAG = "${env.GIT_COMMIT.substring(0, 7)}"
         // ** CREDENCIALES DE DOCKER HUB - USANDO SOLO LAS DE 'santafe' PARA AMBAS IMÁGENES **
         DOCKERHUB_CREDENTIALS_SANTAFE_ID = 'ss-dockerhub-token'
+        NEXUS_HELM_REPO_URL = "https://nexus.146.190.187.99.nip.io/repository/helm-repo/"
     }
 
     triggers {
@@ -128,15 +129,25 @@ pipeline {
         }
 
         stage('Subir Helm Chart a Nexus (Opcional)') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                    script {
-                        echo "Subida automática del Helm Chart a Nexus OMITIDA en este pipeline (Docker Hub para imágenes)"
-                        echo "Para subir el chart manualmente a Nexus, descomenta las líneas en este stage."
-                    }
-                }
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+            script {
+                sh """
+                    cd manifestsPatrones
+                    HELM_CHART_FILE=$(find . -name "*.tgz" -print) # Encuentra el archivo .tgz empaquetado
+                    if [ -z "\${HELM_CHART_FILE}" ]; then
+                        echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
+                        exit 1
+                    fi
+
+                    echo "📦 Subiendo Helm Chart: \${HELM_CHART_FILE} a Nexus..."
+                    helm push "\${HELM_CHART_FILE}" "${NEXUS_HELM_REPO_URL}" --username "${NEXUS_USER}" --password "${NEXUS_PASS}"
+                    echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
+                """
             }
         }
+    }
+}
 
         stage('Push cambios en manifestsPatrones') {
             steps {
