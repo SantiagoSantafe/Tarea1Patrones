@@ -21,6 +21,11 @@ pipeline {
         githubPush()
     }
 
+    options {
+        // Explicit workspace cleanup at the start of pipeline runs
+        cleanupWorkspace()
+    }
+
     stages {
         stage('Checkout Código Fuente') {
             steps {
@@ -113,6 +118,14 @@ pipeline {
             }
         }
 
+        // **DEBUG: Output values.yaml content after yq update**
+        stage('DEBUG: Verify values.yaml Update') {
+            steps {
+                sh 'cat manifestsPatrones/chartpatrones/values.yaml'
+            }
+        }
+
+
         stage('Empaquetar Helm Chart') {
             steps {
                 script {
@@ -123,38 +136,38 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Subir Helm Chart a Nexus (Opcional)') {
-    steps {
-        withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-            script {
-                sh '''
-                    cd manifestsPatrones
-                    HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
-                    if [ -z "${HELM_CHART_FILE}" ]; then
-                        echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
-                        exit 1
-                    fi
-                    
-                    echo "📦 Subiendo Helm Chart: ${HELM_CHART_FILE} a Nexus..."
-                '''
-                
-                // Using curl with -k flag to skip SSL verification
-                sh """
-                    cd manifestsPatrones
-                    CHART_FILE=\$(find . -name "*.tgz" -print | head -n 1)
-                    curl -k -u "${NEXUS_USER}:${NEXUS_PASS}" --upload-file "\${CHART_FILE}" "${NEXUS_HELM_REPO_URL}/\$(basename \${CHART_FILE})"
-                    if [ \$? -eq 0 ]; then
-                        echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
-                    else
-                        echo "❌ Error al subir el Helm Chart a Nexus"
-                        exit 1
-                    fi
-                """
+        steps {
+            withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                script {
+                    sh '''
+                        cd manifestsPatrones
+                        HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
+                        if [ -z "${HELM_CHART_FILE}" ]; then
+                            echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
+                            exit 1
+                        fi
+
+                        echo "📦 Subiendo Helm Chart: ${HELM_CHART_FILE} a Nexus..."
+                    '''
+
+                    // Using curl with -k flag to skip SSL verification
+                    sh """
+                        cd manifestsPatrones
+                        CHART_FILE=\$(find . -name "*.tgz" -print | head -n 1)
+                        curl -k -u "${NEXUS_USER}:${NEXUS_PASS}" --upload-file "\${CHART_FILE}" "${NEXUS_HELM_REPO_URL}/\$(basename \${CHART_FILE})"
+                        if [ \$? -eq 0 ]; then
+                            echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
+                        else
+                            echo "❌ Error al subir el Helm Chart a Nexus"
+                            exit 1
+                        fi
+                    """
+                }
             }
         }
     }
-}
 
         stage('Push cambios en manifestsPatrones') {
             steps {
