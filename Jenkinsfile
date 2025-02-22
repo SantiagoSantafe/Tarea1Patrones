@@ -124,26 +124,30 @@ pipeline {
             }
         }
 
-        stage('Subir Helm Chart a Nexus (Opcional)') {
-        steps {
-            withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                script {
-                    sh """
-                        cd manifestsPatrones
-                        HELM_CHART_FILE=$(find . -name "*.tgz" -print) # Encuentra el archivo .tgz empaquetado
-                        if [ -z "\${HELM_CHART_FILE}" ]; then
-                            echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
-                            exit 1
-                        fi
-
-                        echo "📦 Subiendo Helm Chart: \${HELM_CHART_FILE} a Nexus..."
-                        helm push "\${HELM_CHART_FILE}" "${NEXUS_HELM_REPO_URL}" --username "${NEXUS_USER}" --password "${NEXUS_PASS}"
-                        echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
-                    """
+                stage('Subir Helm Chart a Nexus (Opcional)') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                    script {
+                        sh '''
+                            cd manifestsPatrones
+                            HELM_CHART_FILE=$(find . -name "*.tgz" -print)
+                            if [ -z "${HELM_CHART_FILE}" ]; then
+                                echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
+                                exit 1
+                            fi
+        
+                            echo "📦 Subiendo Helm Chart: ${HELM_CHART_FILE} a Nexus..."
+                        '''
+                        
+                        sh """
+                            cd manifestsPatrones
+                            helm push "\$(find . -name '*.tgz' -print)" "${NEXUS_HELM_REPO_URL}" --username "${NEXUS_USER}" --password "${NEXUS_PASS}"
+                            echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
+                        """
+                    }
                 }
             }
         }
-    }
 
         stage('Push cambios en manifestsPatrones') {
             steps {
