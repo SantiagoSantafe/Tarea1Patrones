@@ -76,7 +76,7 @@ pipeline {
                                 git fetch --all
                                 git reset --hard origin/main
                                 # git pull
-                                echo "ℹ️  Manifests Repo: Después de fetch y reset:"
+                                echo "i  Manifests Repo: Después de fetch y reset:"
                                 git log --oneline -n 5
                                 git status
                                 ls -la chartpatrones
@@ -88,7 +88,7 @@ pipeline {
                                 cd manifestsPatrones
                                 ls -la chartpatrones || echo '❌ chartpatrones NO encontrado'
                                 ls -la
-                                echo "ℹ️ Manifests Repo: Después de clonar:"
+                                echo "i Manifests Repo: Después de clonar:"
                                 git log --oneline -n 5
                                 git status
                                 ls -la chartpatrones
