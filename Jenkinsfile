@@ -172,34 +172,35 @@ pipeline {
             }
         }
 
-        stage('Subir Helm Chart a Nexus') {
-        steps {
-            withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                script {
-                    sh '''
-                        cd manifestsPatrones
-                        HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
-                        if [ -z "${HELM_CHART_FILE}" ]; then
-                            echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
-                            exit 1
-                        fi
-
-                        echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
-                    '''
-                    # **USANDO HELM DESCARGADO LOCALMENTE: ./helm push ...**
-                    sh "./helm push manifestsPatrones/*.tgz ${NEXUS_HELM_REPO_URL} --username ${NEXUS_USER} --password ${NEXUS_PASS}"
-                    sh '''
-                        if [ $? -eq 0 ]; then
-                            echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
-                        else
-                            echo "❌ Error al subir el Helm Chart a Nexus"
-                            exit 1
-                        fi
-                    '''
+                stage('Subir Helm Chart a Nexus') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                    script {
+                        sh '''
+                            cd manifestsPatrones
+                            HELM_CHART_FILE=$(find . -name "*.tgz" -print | head -n 1)
+                            if [ -z "${HELM_CHART_FILE}" ]; then
+                                echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
+                                exit 1
+                            fi
+        
+                            echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
+                        '''
+                        
+                        sh "./helm push manifestsPatrones/*.tgz ${NEXUS_HELM_REPO_URL} --username ${NEXUS_USER} --password ${NEXUS_PASS}"
+                        
+                        sh '''
+                            if [ $? -eq 0 ]; then
+                                echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
+                            else
+                                echo "❌ Error al subir el Helm Chart a Nexus"
+                                exit 1
+                            fi
+                        '''
+                    }
                 }
             }
         }
-    }
 
         stage('Push cambios en manifestsPatrones') {
             steps {
