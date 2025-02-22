@@ -67,27 +67,26 @@ pipeline {
         }
 
         stage('Checkout Manifests Repo') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
-                    script {
-                        if (fileExists('manifestsPatrones/.git')) {
-                            sh """
-                                cd manifestsPatrones
-                                git fetch --all
-                                git reset --hard origin/main
-                                git pull
-                            """
-                        } else {
-                            sh "rm -rf manifestsPatrones || true"
-                            sh "git clone https://\${GIT_USER}:\${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git"
-                            sh "ls -la manifestsPatrones/chartpatrones || echo '❌ chartpatrones NO encontrado'"
-                            // ** DEBUG: List files in manifestsPatrones directory **
-                            sh "ls -la manifestsPatrones"
-                        }
-                    }
-                }
-            }
-        }
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+                    script {
+                        if (fileExists('manifestsPatrones/.git')) {
+                            sh """
+                                cd manifestsPatrones
+                                git fetch --all
+                                git reset --hard origin/main
+                                git pull
+                            """
+                        } else {
+                            sh "rm -rf manifestsPatrones || true"
+                            sh "git clone https://\${GIT_USER}:\${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git"
+                            sh "ls -la manifestsPatrones/chartpatrones || echo '❌ chartpatrones NO encontrado'"
+                            sh "ls -la manifestsPatrones"
+                        }
+                    }
+                }
+            }
+        }
 
         stage('Install Tools') {
             steps {
