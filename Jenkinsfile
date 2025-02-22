@@ -114,24 +114,29 @@ pipeline {
         stage('Install Tools') {
             steps {
                 sh '''
+                    cd manifestsPatrones
                     # Install yq if not present
-                    if (! command -v ./yq &> /dev/null) then
-                        wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O yq
-                        chmod +x yq
+                    if (! command -v ../yq &> /dev/null) then
+                        wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O ../yq
+                        chmod +x ../yq
+                    fi
+
+                    # **DESCARGAR HELM BINARIO LOCALMENTE EN WORKSPACE**
+                    if [ ! -f ./helm ]; then
+                        echo "Descargando Helm CLI..."
+                        HELM_VERSION="v3.14.0" # Puedes usar la versión más reciente
+                        HELM_DOWNLOAD_URL="https://get.helm.sh/helm-\${HELM_VERSION}-linux-amd64.tar.gz"
+                        curl -sSLf "\${HELM_DOWNLOAD_URL}" | tar -xz
+                        mv linux-amd64/helm ./helm
+                        chmod +x ./helm
+                        echo "Helm CLI descargado y disponible en ./helm"
+                    else
+                        echo "Helm CLI ya existe en el workspace."
                     fi
                 '''
             }
         }
 
-        stage('Upgrade Helm CLI') { // <-- **NEW STAGE: Helm Upgrade**
-            steps {
-                sh '''
-                    sudo apt-get update
-                    sudo apt-get install --only-upgrade helm -y
-                    helm version
-                '''
-            }
-        }
 
         stage('Actualizar Helm Values con yq') {
             steps {
@@ -159,8 +164,8 @@ pipeline {
                 script {
                     sh """
                         cd manifestsPatrones
-                        # **AÑADIDO: Especificar versión del chart dinámicamente**
-                        helm package ${CHART_NAME} --version ${CHART_VERSION} --destination .
+                        # **USANDO HELM DESCARGADO LOCALMENTE:  ./helm package ...**
+                        ./helm package ${CHART_NAME} --version ${CHART_VERSION} --destination .
                         echo "📦 Helm Chart empaquetado con versión: ${CHART_VERSION}"
                     """
                 }
@@ -181,7 +186,8 @@ pipeline {
 
                         echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
                     '''
-                    sh "helm push manifestsPatrones/*.tgz ${NEXUS_HELM_REPO_URL} --username ${NEXUS_USER} --password ${NEXUS_PASS}"
+                    # **USANDO HELM DESCARGADO LOCALMENTE: ./helm push ...**
+                    sh "./helm push manifestsPatrones/*.tgz ${NEXUS_HELM_REPO_URL} --username ${NEXUS_USER} --password ${NEXUS_PASS}"
                     sh '''
                         if [ $? -eq 0 ]; then
                             echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
