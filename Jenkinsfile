@@ -15,10 +15,17 @@ pipeline {
         // ** CREDENCIALES DE DOCKER HUB - USANDO SOLO LAS DE 'santafe' PARA AMBAS IMÁGENES **
         DOCKERHUB_CREDENTIALS_SANTAFE_ID = 'ss-dockerhub-token'
         NEXUS_HELM_REPO_URL = "https://nexus.146.190.187.99.nip.io/repository/helm-repo/"
+        // ** NUEVA VARIABLE: VERSION DEL HELM CHART DINÁMICA **
+        CHART_VERSION = "0.1.${BUILD_NUMBER}"
     }
 
     triggers {
         githubPush()
+    }
+
+    options {
+        // Explicit workspace cleanup at the start of pipeline runs
+        cleanupWorkspace()
     }
 
     stages {
@@ -66,33 +73,31 @@ pipeline {
             }
         }
 
-                stage('Checkout Manifests Repo') {
+        stage('Checkout Manifests Repo') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-deploy-key', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
                     script {
                         if (fileExists('manifestsPatrones/.git')) {
-                            sh '''
+                            sh """
                                 cd manifestsPatrones
                                 git fetch --all
                                 git reset --hard origin/main
                                 # git pull
-                                echo "i  Manifests Repo: Después de fetch y reset:"
+                                echo "ℹ️  Manifests Repo: Después de fetch y reset:"
                                 git log --oneline -n 5
                                 git status
                                 ls -la chartpatrones
-                            '''
+                            """
                         } else {
                             sh "rm -rf manifestsPatrones || true"
                             sh "git clone https://\${GIT_USER}:\${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git"
-                            sh '''
-                                cd manifestsPatrones
-                                ls -la chartpatrones || echo '❌ chartpatrones NO encontrado'
-                                ls -la
-                                echo "i Manifests Repo: Después de clonar:"
-                                git log --oneline -n 5
-                                git status
-                                ls -la chartpatrones
-                            '''
+                            sh "ls -la manifestsPatrones/chartpatrones || echo '❌ chartpatrones NO encontrado'"
+                            sh "ls -la manifestsPatrones"
+                            echo "ℹ️ Manifests Repo: Después de clonar:"
+                            sh "cd manifestsPatrones"
+                            git log --oneline -n 5
+                            git status
+                            ls -la chartpatrones
                         }
                     }
                 }
@@ -137,7 +142,9 @@ pipeline {
                 script {
                     sh """
                         cd manifestsPatrones
-                        helm package ${CHART_NAME} --destination .
+                        # **AÑADIDO: Especificar versión del chart dinámicamente**
+                        helm package ${CHART_NAME} --version ${CHART_VERSION} --destination .
+                        echo "📦 Helm Chart empaquetado con versión: ${CHART_VERSION}"
                     """
                 }
             }
@@ -184,7 +191,7 @@ pipeline {
                             git config user.email "jenkins@example.com"
                             git config user.name "Jenkins CI"
                             git add ${HELM_MANIFEST_PATH} chartpatrones/*.tgz
-                            git commit -m "🔄 Actualización de Helm values e imagen a Docker Hub: ${IMAGE_TAG}" || echo "No changes to commit"
+                            git commit -m "🔄 Actualización de Helm values e imagen a Docker Hub: ${IMAGE_TAG} y Helm Chart versión ${CHART_VERSION}" || echo "No changes to commit"
                             git push https://\${GIT_USER}:\${GIT_PASS}@github.com/SantiagoSantafe/manifestsPatrones.git main || echo '❌ Error al hacer push de cambios'
                         """
                     }
