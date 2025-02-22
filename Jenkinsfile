@@ -188,18 +188,18 @@ pipeline {
                                 echo "❌ No se encontró el archivo del Helm Chart empaquetado (*.tgz)"
                                 exit 1
                             fi
-                
+
                             echo "📦 Subiendo Helm Chart versión ${CHART_VERSION}: ${HELM_CHART_FILE} a Nexus..."
-                
+
                             # Verificar archivo
                             if [ ! -f "${HELM_CHART_FILE}" ]; then
                                 echo "❌ ERROR: El archivo ${HELM_CHART_FILE} no existe!"
                                 exit 1
                             fi
-                
+
                             # **Autenticar con Helm Registry Login - INSECURE: --insecure-skip-tls-verify**
                             echo "🔐 Autenticando con helm registry login (INSECURE --insecure-skip-tls-verify)..."
-                            ./helm registry login ${NEXUS_HELM_REPO_URL} --username "${NEXUS_USER}" --password "${NEXUS_PASS}" --insecure-skip-tls-verify
+                            ./helm registry login ${NEXUS_HELM_REPO_URL} --username "${NEXUS_USER}" --password "${NEXUS_PASS}" --insecure-skip-tls-verify  **<-- Explicit path: ./helm**
                             if [ $? -ne 0 ]; then
                                 echo "❌ Error en helm registry login. Fallando pipeline."
                                 exit 1
@@ -209,7 +209,7 @@ pipeline {
 
                             # **Subir Helm Chart (sin flags de usuario/contraseña)**
                             echo "🚀 Pushing Helm chart usando ./helm push..."
-                            ./helm push "${HELM_CHART_FILE}" ${NEXUS_HELM_REPO_URL}
+                            ./helm push "${HELM_CHART_FILE}" ${NEXUS_HELM_REPO_URL}  **<-- Explicit path: ./helm**
                             if [ $? -eq 0 ]; then
                                 echo "✅ Helm Chart subido exitosamente a Nexus: ${NEXUS_HELM_REPO_URL}"
                             else
