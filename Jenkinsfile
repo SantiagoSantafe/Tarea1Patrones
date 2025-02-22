@@ -108,8 +108,8 @@ pipeline {
                 script {
                     sh """
                         cd manifestsPatrones
-                        ../yq eval -i '.api.image.tag = "${IMAGE_TAG}"' manifestsPatrones/${HELM_MANIFEST_PATH}  // Actualizar tag de imagen de la API en values.yaml - **EXPLICIT PATH**
-                        ../yq eval -i '.frontend.image.tag = "${IMAGE_TAG}"' manifestsPatrones/${HELM_MANIFEST_PATH} // Actualizar tag de imagen del Frontend en values.yaml - **EXPLICIT PATH**
+                        ../yq eval -i '.api.image.tag = "${IMAGE_TAG}"' "\${WORKSPACE}/manifestsPatrones/${HELM_MANIFEST_PATH}"  // Actualizar tag de imagen de la API en values.yaml - **EXPLICIT PATH**
+                        ../yq eval -i '.frontend.image.tag = "${IMAGE_TAG}"' "\${WORKSPACE}/manifestsPatrones/${HELM_MANIFEST_PATH}" // Actualizar tag de imagen del Frontend en values.yaml - **EXPLICIT PATH**
                     """
                 }
             }
